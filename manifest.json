@@ -1,0 +1,30 @@
+{
+    "name": "auto-view",
+    "description": "auto view your like video on youtube",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.youtube.com/*"
+            ],
+            "js":["jquery-3.6.0.min.js", "bililiterange.js", "jquery.sendkeys.js", "content.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches":[
+                "*://account.google.com/*"   
+            ],
+            "js": ["jquery-3.6.0.min.js", "bililiterange.js", "jquery.sendkeys.js", "content_google.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "tabs",
+        "identity"
+    ]
+}
